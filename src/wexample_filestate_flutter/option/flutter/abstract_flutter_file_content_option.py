@@ -18,6 +18,8 @@ if TYPE_CHECKING:
 @base_class
 class AbstractFlutterFileContentOption(WithDockerOptionMixin, AbstractFileContentOption):
     _CONTAINER_ROOT: ClassVar[str] = "/var/www/html"
+    # Avoid re-running flutter pub get for every file during the same Python process
+    _prepared_roots: ClassVar[set[str]] = set()
 
     def _get_docker_image_name(self) -> str:
         """Return the Docker image name for Flutter options."""
@@ -50,6 +52,10 @@ class AbstractFlutterFileContentOption(WithDockerOptionMixin, AbstractFileConten
 
     def _prepare_container_environment(self, target: TargetFileOrDirectoryType) -> None:
         """Ensure caches are clean and dependencies are resolved inside the container."""
+        root_key = str(target.get_root().get_path().resolve())
+        if root_key in self._prepared_roots:
+            return
+
         # Remove host-specific cache artifacts first
         self._cleanup_host_cache(target)
 
@@ -72,6 +78,7 @@ class AbstractFlutterFileContentOption(WithDockerOptionMixin, AbstractFileConten
                 "fi",
             ],
         )
+        self._prepared_roots.add(root_key)
 
     def _run_from_container_root(
         self, target: TargetFileOrDirectoryType, shell_command: str

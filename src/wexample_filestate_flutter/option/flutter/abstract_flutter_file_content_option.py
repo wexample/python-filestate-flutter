@@ -56,13 +56,20 @@ class AbstractFlutterFileContentOption(WithDockerOptionMixin, AbstractFileConten
         # Make sure the container exists before running pub get
         self._ensure_docker_container(target)
 
-        # Re-install dependencies inside the container to regenerate package_config with container paths
+        # Re-install dependencies inside the container to regenerate package_config with container paths.
+        # Prefer flutter pub when available (flutter SDK projects), otherwise fall back to dart pub.
         self._execute_in_docker(
             target=target,
             command=[
                 "bash",
                 "-lc",
-                f"export PATH=/usr/lib/dart/bin:$PATH && cd {self._CONTAINER_ROOT} && dart pub get",
+                "export PATH=/usr/local/flutter/bin:/usr/lib/dart/bin:$PATH && "
+                f"cd {self._CONTAINER_ROOT} && "
+                "if command -v flutter >/dev/null 2>&1; then "
+                "flutter pub get; "
+                "else "
+                "dart pub get; "
+                "fi",
             ],
         )
 

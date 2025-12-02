@@ -16,21 +16,12 @@ if TYPE_CHECKING:
 
 
 @base_class
-class AbstractFlutterFileContentOption(WithDockerOptionMixin, AbstractFileContentOption):
+class AbstractFlutterFileContentOption(
+    WithDockerOptionMixin, AbstractFileContentOption
+):
     _CONTAINER_ROOT: ClassVar[str] = "/var/www/html"
     # Avoid re-running flutter pub get for every file during the same Python process
     _prepared_roots: ClassVar[set[str]] = set()
-
-    def _get_docker_image_name(self) -> str:
-        """Return the Docker image name for Flutter options."""
-        return "wex-flutter-option"
-
-    def _get_dockerfile_path(self) -> Path:
-        """Return the path to the Flutter Dockerfile."""
-        # Get the path relative to this file
-        current_file = Path(__file__)
-        package_root = current_file.parent.parent.parent
-        return package_root / "resources" / "docker" / "Dockerfile.flutter-option"
 
     def _cleanup_host_cache(self, target: TargetFileOrDirectoryType) -> None:
         """Remove host-generated Dart cache files that contain absolute paths.
@@ -49,6 +40,17 @@ class AbstractFlutterFileContentOption(WithDockerOptionMixin, AbstractFileConten
         packages_file = root_path / ".packages"
         if packages_file.exists():
             packages_file.unlink(missing_ok=True)
+
+    def _get_docker_image_name(self) -> str:
+        """Return the Docker image name for Flutter options."""
+        return "wex-flutter-option"
+
+    def _get_dockerfile_path(self) -> Path:
+        """Return the path to the Flutter Dockerfile."""
+        # Get the path relative to this file
+        current_file = Path(__file__)
+        package_root = current_file.parent.parent.parent
+        return package_root / "resources" / "docker" / "Dockerfile.flutter-option"
 
     def _prepare_container_environment(self, target: TargetFileOrDirectoryType) -> None:
         """Ensure caches are clean and dependencies are resolved inside the container."""

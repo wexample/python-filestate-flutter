@@ -82,6 +82,6 @@ class AbstractFlutterFileContentOption(WithDockerOptionMixin, AbstractFileConten
             command=[
                 "bash",
                 "-lc",
-                f"export PATH=/usr/lib/dart/bin:$PATH && cd {self._CONTAINER_ROOT} && {shell_command}",
+                f"export PATH=/usr/local/flutter/bin:/usr/lib/dart/bin:$PATH && cd {self._CONTAINER_ROOT} && {shell_command}",
             ],
         )

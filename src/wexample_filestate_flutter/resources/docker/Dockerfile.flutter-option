@@ -1,0 +1,11 @@
+# Base image with Flutter SDK (includes Dart)
+FROM ghcr.io/cirruslabs/flutter:stable
+
+# Copy analysis options configuration
+COPY analysis_options.yaml /root/analysis_options.yaml
+
+# Set working directory
+WORKDIR /var/www/html
+
+# Keep container running
+CMD ["tail", "-f", "/dev/null"]

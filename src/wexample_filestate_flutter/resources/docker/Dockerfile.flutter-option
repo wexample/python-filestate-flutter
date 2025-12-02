@@ -1,0 +1,11 @@
+# Base image with Dart SDK
+FROM dart:stable
+
+# Copy analysis options configuration
+COPY analysis_options.yaml /root/analysis_options.yaml
+
+# Set working directory
+WORKDIR /var/www/html
+
+# Keep container running
+CMD ["tail", "-f", "/dev/null"]

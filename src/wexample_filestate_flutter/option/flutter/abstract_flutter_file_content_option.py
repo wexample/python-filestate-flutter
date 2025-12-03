@@ -71,7 +71,7 @@ class AbstractFlutterFileContentOption(
             command=[
                 "bash",
                 "-lc",
-                "export PATH=/usr/local/flutter/bin:/usr/lib/dart/bin:$PATH && "
+                "export PATH=/sdks/flutter/bin:$PATH && "
                 f"cd {self._CONTAINER_ROOT} && "
                 "if command -v flutter >/dev/null 2>&1; then "
                 "flutter pub get; "

@@ -1,6 +1,6 @@
 # wexample-filestate-flutter
 
-Version: 0.0.13
+Version: 0.0.15
 
 ## Table of Contents
 
@@ -188,7 +188,7 @@ Free to use in both personal and commercial projects.
 
 ## Integration in the Suite
 
-This package is part of the **Wexample Suite** — a collection of high-quality Python packages designed to work seamlessly together.
+This package is part of the Wexample Suite — a collection of high-quality, modular tools designed to work seamlessly together across multiple languages and environments.
 
 ### Related Packages
 
@@ -206,7 +206,7 @@ Refer to each package's documentation for specific version compatibility require
 
 - attrs: >=23.1.0
 - cattrs: >=23.1.0
-- wexample-filestate: ==0.0.72
+- wexample-filestate: ==0.0.74
 
 
 # About us

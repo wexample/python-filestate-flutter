@@ -41,9 +41,7 @@ class AbstractFlutterFileContentOption(
         if packages_file.exists():
             packages_file.unlink(missing_ok=True)
 
-    def _get_docker_image_name(self) -> str:
-        """Return the Docker image name for Flutter options."""
-        return "flutter-option"
+    DOCKER_IMAGE_NAME: str = "flutter-option"
 
     def _get_dockerfile_path(self) -> Path:
         """Return the path to the Flutter Dockerfile."""

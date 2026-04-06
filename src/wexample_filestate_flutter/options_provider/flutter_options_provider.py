@@ -14,6 +14,14 @@ if TYPE_CHECKING:
 
 class FlutterOptionsProvider(AbstractOptionsProvider):
     @classmethod
+    def get_docker_image_name(cls) -> str | None:
+        from wexample_filestate_flutter.option.flutter.abstract_flutter_file_content_option import (
+            AbstractFlutterFileContentOption,
+        )
+
+        return AbstractFlutterFileContentOption.DOCKER_IMAGE_NAME
+
+    @classmethod
     def get_options(cls) -> list[type[AbstractConfigOption]]:
         from wexample_filestate_flutter.option.flutter_option import FlutterOption
 

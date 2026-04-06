@@ -43,7 +43,7 @@ class AbstractFlutterFileContentOption(
 
     def _get_docker_image_name(self) -> str:
         """Return the Docker image name for Flutter options."""
-        return "wex-flutter-option"
+        return "flutter-option"
 
     def _get_dockerfile_path(self) -> Path:
         """Return the path to the Flutter Dockerfile."""

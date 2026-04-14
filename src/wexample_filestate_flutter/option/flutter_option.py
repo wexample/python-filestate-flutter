@@ -9,8 +9,8 @@ from wexample_config.config_option.abstract_nested_config_option import (
 from wexample_filestate.enum.scopes import Scope
 from wexample_filestate.operation.abstract_operation import AbstractOperation
 from wexample_filestate.option.mixin.option_mixin import OptionMixin
-from wexample_filestate.option.mixin.with_docker_option_mixin import (
-    WithDockerOptionMixin,
+from wexample_filestate.option.mixin.with_runner_option_mixin import (
+    WithRunnerOptionMixin,
 )
 from wexample_helpers.decorator.base_class import base_class
 
@@ -19,7 +19,11 @@ if TYPE_CHECKING:
 
 
 @base_class
-class FlutterOption(OptionMixin, WithDockerOptionMixin, AbstractNestedConfigOption):
+class FlutterOption(OptionMixin, WithRunnerOptionMixin, AbstractNestedConfigOption):
+    @classmethod
+    def get_scopes(cls) -> list[Scope]:
+        return [Scope.CONTENT]
+
     @staticmethod
     def get_raw_value_allowed_type() -> Any:
         from wexample_filestate_flutter.config_value.flutter_config_value import (

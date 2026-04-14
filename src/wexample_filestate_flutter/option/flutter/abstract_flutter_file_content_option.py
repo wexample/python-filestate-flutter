@@ -6,8 +6,8 @@ from typing import TYPE_CHECKING, ClassVar
 from wexample_filestate.option.abstract_file_content_option import (
     AbstractFileContentOption,
 )
-from wexample_filestate.option.mixin.with_docker_option_mixin import (
-    WithDockerOptionMixin,
+from wexample_filestate.option.mixin.with_runner_option_mixin import (
+    WithRunnerOptionMixin,
 )
 from wexample_helpers.decorator.base_class import base_class
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
 
 @base_class
 class AbstractFlutterFileContentOption(
-    WithDockerOptionMixin, AbstractFileContentOption
+    WithRunnerOptionMixin, AbstractFileContentOption
 ):
     _CONTAINER_ROOT: ClassVar[str] = "/var/www/html"
     # Avoid re-running flutter pub get for every file during the same Python process
@@ -41,9 +41,10 @@ class AbstractFlutterFileContentOption(
         if packages_file.exists():
             packages_file.unlink(missing_ok=True)
 
+    DOCKER_IMAGE_NAME: ClassVar[str] = "flutter-option"
+
     def _get_docker_image_name(self) -> str:
-        """Return the Docker image name for Flutter options."""
-        return "wex-flutter-option"
+        return self.DOCKER_IMAGE_NAME
 
     def _get_dockerfile_path(self) -> Path:
         """Return the path to the Flutter Dockerfile."""

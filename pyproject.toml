@@ -4,14 +4,14 @@ build-backend = "pdm.backend"
 
 [project]
 name = "wexample-filestate-flutter"
-version = "6.0.29"
+version = "6.0.30"
 authors = [{name = "weeger", email = "contact@wexample.com"}]
 requires-python = ">=3.10"
 classifiers = ["Programming Language :: Python :: 3", "License :: OSI Approved :: MIT License", "Operating System :: OS Independent"]
 dependencies = [
     "attrs>=23.1.0",
     "cattrs>=23.1.0",
-    "wexample-filestate>=7.3.0",
+    "wexample-filestate>=7.4.0",
 ]
 
 [project.readme]

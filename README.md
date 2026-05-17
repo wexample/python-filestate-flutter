@@ -1,6 +1,6 @@
 # filestate_flutter
 
-Version: 6.0.30
+Version: 6.1.0
 
 ## Table of Contents
 
@@ -80,7 +80,7 @@ Visit the [Wexample Suite documentation](https://docs.wexample.com) for the comp
 
 - attrs: >=23.1.0
 - cattrs: >=23.1.0
-- wexample-filestate: >=7.4.0
+- wexample-filestate: >=9.0.0
 
 ## Versioning & Compatibility Policy
 

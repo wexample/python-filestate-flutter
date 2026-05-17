@@ -19,7 +19,9 @@ if TYPE_CHECKING:
 
 
 @base_class
-class FlutterOption(OptionMixin, WithBatchDockerOptionMixin, AbstractNestedConfigOption):
+class FlutterOption(
+    OptionMixin, WithBatchDockerOptionMixin, AbstractNestedConfigOption
+):
     @classmethod
     def get_scopes(cls) -> list[Scope]:
         return [Scope.CONTENT]

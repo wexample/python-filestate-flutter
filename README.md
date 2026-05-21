@@ -1,6 +1,6 @@
 # filestate_flutter
 
-Version: 6.3.0
+Version: 6.3.1
 
 ## Table of Contents
 

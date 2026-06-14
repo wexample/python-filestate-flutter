@@ -53,6 +53,6 @@ class FlutterOption(
     def set_value(self, raw_value: Any) -> None:
         # Convert list form to dict form for consistency
         if isinstance(raw_value, list):
-            raw_value = {option_name: True for option_name in raw_value}
+            raw_value = dict.fromkeys(raw_value, True)
 
         super().set_value(raw_value=raw_value)

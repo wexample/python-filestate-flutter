@@ -1,0 +1,11 @@
+{
+  "engram_version": 1,
+  "source_key": "src/wexample_filestate_flutter/option/flutter_option.py",
+  "cache_nonce": "1c2800147ebc4367950bb7b61bd21d00",
+  "last_visited_at": "2026-06-14T18:39:21+00:00",
+  "last_rev": "ac7083b3d4fe77d81632b8b13910da3ab6b98d7e",
+  "last_decision": "edit",
+  "kinds": [],
+  "notes": "replaced list-to-dict comprehension with dict.fromkeys in set_value for faster C-level conversion",
+  "in_progress": null
+}

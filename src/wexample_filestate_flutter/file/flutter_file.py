@@ -9,4 +9,4 @@ class FlutterFile(ItemTargetFile):
     EXTENSION_ENV: ClassVar[str] = "dart"
 
     def _expected_file_name_extension(self) -> str | None:
-        return FlutterFile.EXTENSION_ENV
+        return self.EXTENSION_ENV

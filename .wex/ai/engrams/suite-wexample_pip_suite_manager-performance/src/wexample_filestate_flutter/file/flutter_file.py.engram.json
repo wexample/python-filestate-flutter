@@ -1,0 +1,11 @@
+{
+  "engram_version": 1,
+  "source_key": "src/wexample_filestate_flutter/file/flutter_file.py",
+  "cache_nonce": "1c2800147ebc4367950bb7b61bd21d00",
+  "last_visited_at": "2026-06-14T18:36:50+00:00",
+  "last_rev": "48f46405a6d80e87650f54847547f3003b9046ef",
+  "last_decision": "edit",
+  "kinds": [],
+  "notes": "replaced hardcoded FlutterFile.EXTENSION_ENV with self.EXTENSION_ENV to avoid global name lookup and enable subclass polymorphism",
+  "in_progress": null
+}

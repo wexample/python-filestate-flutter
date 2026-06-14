@@ -23,16 +23,10 @@ class DartFormatOption(AbstractFlutterFileContentOption):
         # Get the file path inside the container
         container_file_path = self._get_container_file_path(target)
 
-        # First, apply dart fix to auto-fix issues
+        # Fix and format in a single docker exec to halve subprocess round-trips
         self._run_from_container_root(
             target=target,
-            shell_command=f"dart fix --apply {container_file_path}",
-        )
-
-        # Then, format the code
-        self._run_from_container_root(
-            target=target,
-            shell_command=f"dart format {container_file_path}",
+            shell_command=f"dart fix --apply {container_file_path} && dart format {container_file_path}",
         )
 
         # Read the fixed and formatted content from the file (it was modified in place)

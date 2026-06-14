@@ -1,0 +1,11 @@
+{
+  "engram_version": 1,
+  "source_key": "src/wexample_filestate_flutter/option/flutter/dart_format_option.py",
+  "cache_nonce": "1c2800147ebc4367950bb7b61bd21d00",
+  "last_visited_at": "2026-06-14T18:38:41+00:00",
+  "last_rev": "5020040b3ee83c97cc1dc6964614748b8a76c1a7",
+  "last_decision": "edit",
+  "kinds": [],
+  "notes": "merged two sequential docker exec calls into one `&&`-chained command to halve subprocess round-trips",
+  "in_progress": null
+}

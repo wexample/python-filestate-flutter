@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import shutil
 from pathlib import Path
 from typing import TYPE_CHECKING, ClassVar
 
@@ -22,6 +23,13 @@ class AbstractFlutterFileContentOption(
     _CONTAINER_ROOT: ClassVar[str] = "/var/www/html"
     # Avoid re-running flutter pub get for every file during the same Python process
     _prepared_roots: ClassVar[set[str]] = set()
+    # Computed once at class-definition time; avoids repeated Path construction per call
+    _DOCKERFILE_PATH: ClassVar[Path] = (
+        Path(__file__).parent.parent.parent
+        / "resources"
+        / "docker"
+        / "Dockerfile.flutter-option"
+    )
 
     def _cleanup_host_cache(self, target: TargetFileOrDirectoryType) -> None:
         """Remove host-generated Dart cache files that contain absolute paths.
@@ -29,17 +37,12 @@ class AbstractFlutterFileContentOption(
         These caches often point to the host's pub cache (e.g., /home/<user>/.pub-cache)
         and break inside the container, so we wipe them before running commands there.
         """
-        import shutil
-
         root_path = target.get_root().get_path()
 
-        dart_tool = root_path / ".dart_tool"
-        if dart_tool.exists():
-            shutil.rmtree(dart_tool, ignore_errors=True)
-
-        packages_file = root_path / ".packages"
-        if packages_file.exists():
-            packages_file.unlink(missing_ok=True)
+        # ignore_errors=True / missing_ok=True already handle the non-existent case,
+        # so the extra exists() stat calls are unnecessary.
+        shutil.rmtree(root_path / ".dart_tool", ignore_errors=True)
+        (root_path / ".packages").unlink(missing_ok=True)
 
     DOCKER_IMAGE_NAME: ClassVar[str] = "flutter-option"
 
@@ -48,10 +51,7 @@ class AbstractFlutterFileContentOption(
 
     def _get_dockerfile_path(self) -> Path:
         """Return the path to the Flutter Dockerfile."""
-        # Get the path relative to this file
-        current_file = Path(__file__)
-        package_root = current_file.parent.parent.parent
-        return package_root / "resources" / "docker" / "Dockerfile.flutter-option"
+        return self._DOCKERFILE_PATH
 
     def _prepare_container_environment(self, target: TargetFileOrDirectoryType) -> None:
         """Ensure caches are clean and dependencies are resolved inside the container."""

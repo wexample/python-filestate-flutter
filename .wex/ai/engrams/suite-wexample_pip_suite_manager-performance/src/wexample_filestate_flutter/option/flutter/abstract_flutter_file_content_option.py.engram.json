@@ -1,0 +1,11 @@
+{
+  "engram_version": 1,
+  "source_key": "src/wexample_filestate_flutter/option/flutter/abstract_flutter_file_content_option.py",
+  "cache_nonce": "1c2800147ebc4367950bb7b61bd21d00",
+  "last_visited_at": "2026-06-14T18:37:49+00:00",
+  "last_rev": "7e5a668d1a51c1388cde63749ec84dafea43f2f5",
+  "last_decision": "edit",
+  "kinds": [],
+  "notes": "hoisted shutil import, removed redundant exists() guards, cached Dockerfile path as ClassVar",
+  "in_progress": null
+}

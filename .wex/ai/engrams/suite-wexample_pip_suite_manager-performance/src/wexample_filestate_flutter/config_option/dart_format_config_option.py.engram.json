@@ -1,0 +1,11 @@
+{
+  "engram_version": 1,
+  "source_key": "src/wexample_filestate_flutter/config_option/dart_format_config_option.py",
+  "cache_nonce": "1c2800147ebc4367950bb7b61bd21d00",
+  "last_visited_at": "2026-06-14T18:35:18+00:00",
+  "last_rev": "08364f4a2f3591290a92a0bf618c5d6659d67fc0",
+  "last_decision": "skip",
+  "kinds": [],
+  "notes": "only a static string-return method and class decoration, no hot path to optimize",
+  "in_progress": null
+}

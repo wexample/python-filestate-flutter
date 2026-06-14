@@ -1,0 +1,11 @@
+{
+  "engram_version": 1,
+  "source_key": "src/wexample_filestate_flutter/options_provider/flutter_options_provider.py",
+  "cache_nonce": "1c2800147ebc4367950bb7b61bd21d00",
+  "last_visited_at": "2026-06-14T18:39:53+00:00",
+  "last_rev": "1095b3d511e1a5c60908169a7ae5e402ba93f98a",
+  "last_decision": "skip",
+  "kinds": [],
+  "notes": "two one-shot classmethods with lazy imports; Python import cache makes repeated calls O(1) dict lookups — no hot path to optimize",
+  "in_progress": null
+}

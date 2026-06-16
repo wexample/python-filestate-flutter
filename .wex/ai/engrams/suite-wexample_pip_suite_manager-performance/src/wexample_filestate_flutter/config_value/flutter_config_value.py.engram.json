@@ -2,10 +2,10 @@
   "engram_version": 1,
   "source_key": "src/wexample_filestate_flutter/config_value/flutter_config_value.py",
   "cache_nonce": "1c2800147ebc4367950bb7b61bd21d00",
-  "last_visited_at": "2026-06-14T18:36:17+00:00",
-  "last_rev": "13f6335f58d7c30f00ef91bbf6296cc91e245687",
+  "last_visited_at": "2026-06-16T07:33:51+00:00",
+  "last_rev": "f5313849e4ea2f2be4b096fc8b7544e2d2e08bc0",
   "last_decision": "edit",
   "kinds": [],
-  "notes": "hoisted DartFormatConfigOption import to module level, eliminating per-call sys.modules lookup in to_option_raw_value",
+  "notes": "inlined DartFormatConfigOption.get_name() literal string and removed unused import in to_option_raw_value",
   "in_progress": null
 }

@@ -6,11 +6,6 @@ from wexample_config.config_value.config_value import ConfigValue
 from wexample_helpers.classes.field import public_field
 from wexample_helpers.decorator.base_class import base_class
 
-from wexample_filestate_flutter.config_option.dart_format_config_option import (
-    DartFormatConfigOption,
-)
-
-
 @base_class
 class FlutterConfigValue(ConfigValue):
     dart_format: bool | None = public_field(
@@ -23,5 +18,5 @@ class FlutterConfigValue(ConfigValue):
 
     def to_option_raw_value(self) -> Any:
         return {
-            DartFormatConfigOption.get_name(): self.dart_format,
+            "dart_format": self.dart_format,
         }

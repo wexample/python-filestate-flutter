@@ -4,4 +4,7 @@ __pycache__/
 .pytest_cache/
 .ruff_cache/
 .pdm-python
-/.venv
+/.venv/tmp/
+/logs/
+*.py[cod]
+/tmp/

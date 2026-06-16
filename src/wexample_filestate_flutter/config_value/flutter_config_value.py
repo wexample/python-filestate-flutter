@@ -6,6 +6,7 @@ from wexample_config.config_value.config_value import ConfigValue
 from wexample_helpers.classes.field import public_field
 from wexample_helpers.decorator.base_class import base_class
 
+
 @base_class
 class FlutterConfigValue(ConfigValue):
     dart_format: bool | None = public_field(

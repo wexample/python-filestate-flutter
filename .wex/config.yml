@@ -6,7 +6,7 @@ git:
 global:
   name: filestate_flutter
   type: app
-  version: 6.6.2
+  version: 6.6.3
 wex:
   migration: 1
   version: 6.0.112
